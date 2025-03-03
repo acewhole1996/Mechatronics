@@ -3,59 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mechatronics Team</title>
+    <title>Arkpad Mechatronics Team</title>
     <style>
-        body {
+              body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #000;
-            color: #fff;
+            background-color: #E0F2F7;
+            color: #004D40;
             margin: 0;
             padding: 0;
-            text-align: center;
+            text-align: left;
         }
 
         header {
-            background-color: #e80000; /* Evangelion red */
-            padding: 20px 0;
-            margin-bottom: 20px;
+            background-color: #00838F;
+            padding: 50px 0;
+            margin-bottom: 50px;
+            border-bottom: 2px solid #B2EBF2;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 3em;
             letter-spacing: 2px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #E0F7FA;
         }
 
         .container {
-            width: 90%;
+            width: 80%;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .tab-button {
+            background-color: #B2EBF2;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            color: #006064;
+        }
+
+        .tab-button.active {
+            background-color: #00ACC1;
+            color: #E0F7FA;
+        }
+
+        .tab-content {
+            display: none;
+            width: 100%;
+        }
+
+        .tab-content.active {
+            display: block;
         }
 
         .character {
+            position: relative;
             display: flex;
             width: 100%;
-            margin: 10px 0;
-            padding: 20px;
-            background-color: #222;
+            margin: 40px 0;
+            padding: 50px;
+            background-color: #B2EBF2;
             align-items: center;
             text-align: left;
             box-sizing: border-box;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .character:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
 
         .character img {
-            width: 120px;
-            height: 120px;
+            width: 200px;
+            height: 200px;
             object-fit: cover;
             border-radius: 50%;
-            margin-right: 20px;
+            margin-right: 50px;
+            border: 3px solid #E0F7FA;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
         }
 
         .character h2 {
-            margin: 0 0 5px 0;
-            font-size: 1.5em;
+            margin: 0 0 20px 0;
+            font-size: 2.5em;
+            color: #006064;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
 
         .character-description {
@@ -63,66 +113,152 @@
         }
 
         .character-description p {
-            line-height: 1.4;
+            line-height: 2;
             margin: 0;
+            color: #00796B;
+            font-size: 1.3em;
+            font-weight: 400;
         }
 
+        .popup {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #00ACC1;
+            color: #E0F7FA;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            display: none;
+            z-index: 11;
+            text-align: center;
+            width: 300px;
+        }
+
+        .popup::before {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: #00ACC1;
+            clip-path: polygon(50% 100%, 0 0, 100% 0);
+        }
+
+        .character:focus .popup, .character:hover .popup {
+            display: block;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Arkpad Mechatronics team</h1>
+        <h1>Arkpad Mechatronics Team</h1>
     </header>
 
     <div class="container">
-        <div class="character">
-            <img src="ace.jpg" alt="Shinji Ikari">
-            <div class="character-description">
-                <h2>Ace Ventigan</h2>
-                <p> Project Leader, Robotics, Software, And Firmwares </p>
+        <div class="tabs">
+            <button class="tab-button active" data-tab="team">Team Members</button>
+            <button class="tab-button" data-tab="projects">Projects</button>
+            <button class="tab-button" data-tab="about">About Us</button>
+        </div>
+
+        <div id="team" class="tab-content active">
+            <div class="character" tabindex="0">
+                <img src="ace.jpg" alt="Ace Ventigan">
+                <div class="character-description">
+                    <h2>Ace Ventigan</h2>
+                    <p>Project Leader, Robotics, Software, and Firmwares.</p>
+                </div>
+                <div class="popup">
+                    <p>Ace is a visionary leader with expertise in robotics, software, and firmware. He drives innovation and ensures project success.</p>
+                </div>
+            </div>
+            <div class="character" tabindex="0">
+                <img src="marvs.jpg" alt="Marverick Paronable">
+                <div class="character-description">
+                    <h2>Marverick Paronable</h2>
+                    <p>Mechanical Development Lead, Machine design, Execution, and Electronics Engineering.</p>
+                </div>
+                <div class="popup">
+                    <p>Marverick excels in mechanical development, machine design, and electronics engineering, driving the team's technical advancements.</p>
+                </div>
+            </div>
+            <div class="character" tabindex="0">
+                <img src="sheldon.jpg" alt="Sheldon Salazar">
+                <div class="character-description">
+                    <h2>Sheldon Salazar</h2>
+                    <p>Electronics, Software, and Firmware Development.</p>
+                </div>
+                <div class="popup">
+                    <p>Sheldon is a skilled developer in electronics, software, and firmware, contributing to the team's technological capabilities.</p>
+                </div>
+            </div>
+            <div class="character" tabindex="0">
+                <img src="meigie.jpg" alt="Meigie Ann Mabasa">
+                <div class="character-description">
+                    <h2>Meigie Ann Mabasa</h2>
+                    <p>Administration, Budget Management, Human Resources, and Electronics.</p>
+                </div>
+                <div class="popup">
+                    <p>Meigie manages administration, budgets, HR, and also contributes to electronics, ensuring smooth team operations.</p>
+                </div>
+            </div>
+            <div class="character" tabindex="0">
+                <img src="lester.jpg" alt="Lester Carrera">
+                <div class="character-description">
+                    <h2>Lester Carrera</h2>
+                    <p>Mechanical Design and Execution.</p>
+                </div>
+                <div class="popup">
+                    <p>Lester focuses on mechanical design and execution, bringing practical solutions to the team's projects.</p>
+                </div>
+            </div>
+            <div class="character" tabindex="0">
+                <img src="jay.jpg" alt="Christian Jay Mendoza">
+                <div class="character-description">
+                    <h2>Christian Jay Mendoza</h2>
+                    <p>Robotics, Software, Firmware, and Electronics.</p>
+                </div>
+                <div class="popup">
+                    <p>Christian Jay is versatile in robotics, software, firmware, and electronics, contributing to various aspects of the projects.</p>
+                </div>
             </div>
         </div>
 
-        <div class="character">
-            <img src="marvs.jpg" alt="Rei Ayanami">
-            <div class="character-description">
-                <h2>Marverick Paronable</h2>
-                <p>Mechanical Development Lead, Machine design and execution, And Electronics Engineering</p>
-            </div>
+        <div id="projects" class="tab-content">
+            <p><a href="https://www.example.com">https://www.example.com</a></p>
         </div>
 
-        <div class="character">
-            <img src="sheldon.jpg" alt="Asuka Langley Soryu">
-            <div class="character-description">
-                <h2>Sheldon Salazar</h2>
-                <p>Electronics, Software and Firmware development</p>
-            </div>
+        <div id="about" class="tab-content">
+            <p>This is the about us tab content.</p>
         </div>
-
-        <div class="character">
-            <img src="meigie.jpg" alt="Misato Katsuragi">
-            <div class="character-description">
-                <h2>Meigie Ann Mabasa</h2>
-                <p>Admin, Budgets, Human Resource, And Electronics </p>
-            </div>
-        </div>
-
-        <div class="character">
-            <img src="lester.jpg" alt="Gendo Ikari">
-            <div class="character-description">
-                <h2>Lester Carrera</h2>
-                <p>Mechanical design and Execution</p>
-            </div>
-        </div>
-
-        <div class="character">
-            <img src="jay.jpg" alt="Ryoji Kaji">
-            <div class="character-description">
-                <h2>Christian Jay Mendoza</h2>
-                <p>Robotics, Software, Firmware, And Electronics</p>
-            </div>
-        </div>
-
     </div>
+
+    <script>
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.dataset.tab;
+
+                // Remove 'active' class from all tab buttons
+                document.querySelectorAll('.tab-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+
+                // Add 'active' class to the clicked tab button
+                button.classList.add('active');
+
+                // Remove 'active' class from all tab content
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Add 'active' class to the corresponding tab content
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>
