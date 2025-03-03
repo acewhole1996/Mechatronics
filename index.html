@@ -1,10 +1,128 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>acewhole's Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evangelion Characters</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #e80000; /* Evangelion red */
+            padding: 20px 0;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .character {
+            display: flex;
+            width: 100%;
+            margin: 10px 0;
+            padding: 20px;
+            background-color: #222;
+            align-items: center;
+            text-align: left;
+            box-sizing: border-box;
+        }
+
+        .character img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .character h2 {
+            margin: 0 0 5px 0;
+            font-size: 1.5em;
+        }
+
+        .character-description {
+            flex-grow: 1;
+        }
+
+        .character-description p {
+            line-height: 1.4;
+            margin: 0;
+        }
+
+    </style>
 </head>
 <body>
-    <h1>Hello from acewhole!</h1>
-    <p>This is my GitHub Pages site.</p>
+    <header>
+        <h1>Arkpad Mechatornics team</h1>
+    </header>
+
+    <div class="container">
+        <div class="character">
+            <img src="images/ace.jpg" alt="Shinji Ikari">
+            <div class="character-description">
+                <h2>Ace Ventigan</h2>
+                <p> Project Leader, Robotics, Software, And Firmwares </p>
+            </div>
+        </div>
+
+        <div class="character">
+            <img src="images/marvs.jpg" alt="Rei Ayanami">
+            <div class="character-description">
+                <h2>Marverick Paronable</h2>
+                <p>Mechanical Development Lead, Machine design and execution, And Electronics Engineering</p>
+            </div>
+        </div>
+
+        <div class="character">
+            <img src="images/sheldon.jpg" alt="Asuka Langley Soryu">
+            <div class="character-description">
+                <h2>Sheldon Salazar</h2>
+                <p>Electronics, Software and Firmware development</p>
+            </div>
+        </div>
+
+        <div class="character">
+            <img src="images/meigie.jpg" alt="Misato Katsuragi">
+            <div class="character-description">
+                <h2>Meigie Ann Mabasa</h2>
+                <p>Admin, Budgets, Human Resource, And Electronics </p>
+            </div>
+        </div>
+
+        <div class="character">
+            <img src="images/lester.jpg" alt="Gendo Ikari">
+            <div class="character-description">
+                <h2>Lester Carrera</h2>
+                <p>Mechanical design and Execution</p>
+            </div>
+        </div>
+
+        <div class="character">
+            <img src="images/jay.jpg" alt="Ryoji Kaji">
+            <div class="character-description">
+                <h2>Christian Jay Mendoza</h2>
+                <p>Robotics, Software, Firmware, And Electronics</p>
+            </div>
+        </div>
+
+    </div>
 </body>
 </html>
